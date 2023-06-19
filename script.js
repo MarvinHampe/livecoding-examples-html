@@ -18,7 +18,9 @@ function toggleCodeExecution(codeId) {
     var sandboxDocument =
       sandboxIframe.contentDocument || sandboxIframe.contentWindow.document;
     sandboxDocument.open();
-    sandboxDocument.write(code);
+    sandboxDocument.write(
+      `<style>* { color: white; text-shadow: 2px 2px 8px black}</style>${code}`
+    );
     sandboxDocument.close();
 
     sandboxOutput.style.display = "block";
